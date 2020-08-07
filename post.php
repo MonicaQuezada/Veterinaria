@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
       $sql->bindValue(':vet_Id', $_GET['vet_Id']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
-      echo ($sql->fetch(PDO::FETCH_ASSOC);
+      echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
       exit();
 	  }
     else {
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
-      echo ( $sql->fetchAll()  );
+      echo json_encode( $sql->fetchAll()  );
       exit();
 	}
 }
